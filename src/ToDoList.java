@@ -8,31 +8,32 @@ class Task {
     JButton removeTaskButton;
 
     public Task(String text, JFrame frame, int yPos) {
-        JCheckBox task = new JCheckBox("Demo Task");
-        task.setBounds(100, 60, 170, 30);
-        frame.add(task);
+        this.task = new JCheckBox(text);
+        this.task.setBounds(100, yPos, 170, 30);
+        frame.add(this.task);
 
         ImageIcon tempIcon = new ImageIcon("img/binLogo.png");
         Image img = tempIcon.getImage();
         Image scaledImg = img.getScaledInstance(30, 30, Image.SCALE_SMOOTH);
         ImageIcon icon = new ImageIcon(scaledImg);
 
-        JButton removeTaskButton = new JButton(icon);
-        removeTaskButton.setBounds(270, 60, 30, 30);
-        frame.add(removeTaskButton);
+        this.removeTaskButton = new JButton(icon);
+        this.removeTaskButton.setBounds(270, yPos, 30, 30);
+        frame.add(this.removeTaskButton);
     }
 }
 
 public class ToDoList extends JFrame {
+    int i = 0;
+    int yPos = 30;
+    Task[] tasks = new Task[1024];
+
     public ToDoList() {
         this.setTitle("To Do List");
         this.setSize(400, 600);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
         this.getContentPane().setBackground(new Color(198, 217, 238));
-        
-
-        Task[] tasks = new Task[1024];
         
         JButton addTaskButton = new JButton("Add Task");
         addTaskButton.setBounds(100, 20, 200, 40);
@@ -41,7 +42,7 @@ public class ToDoList extends JFrame {
         addTaskButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Add Task Button Clicked!!");
+                tasks[i++] = new Task("Task " + i, ToDoList.this, yPos += 30);
             }
         });
 
