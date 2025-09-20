@@ -25,6 +25,7 @@ class Task {
             public void actionPerformed(ActionEvent e) {
                 frame.remove(Task.this.task);
                 frame.remove(Task.this.removeTaskButton);
+
                 frame.revalidate();
                 frame.repaint();
             }
