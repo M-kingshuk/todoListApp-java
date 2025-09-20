@@ -1,5 +1,9 @@
 import javax.swing.*;
 
+class addTask {
+
+}
+
 public class ToDoList {
     public static void main(String[] args) {
         JFrame frame = new JFrame("To do list");
@@ -14,6 +18,10 @@ public class ToDoList {
         JButton addTaskButton = new JButton("Add Task");
         addTaskButton.setBounds(100, 20, 200, 40);
         frame.add(addTaskButton);
+
+        JCheckBox task = new JCheckBox("Buy milk");
+        task.setBounds(50, 50, 150, 30);
+        frame.add(task);
         
         frame.setVisible(true);
     }
