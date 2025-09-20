@@ -9,7 +9,7 @@ class Task {
     JButton removeTaskButton;
 
     public Task(String text, JFrame frame, int yPos, LinkedList<Task> tasksList) {
-        this.task = new JCheckBox("Demo Task");
+        this.task = new JCheckBox(text);
         task.setBounds(100, yPos, 170, 30);
         frame.add(this.task);
 
@@ -68,17 +68,25 @@ public class ToDoList extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Create a new Task object with the "Demo Task" name.
-                Task newTask = new Task("Demo Task", ToDoList.this, yOffset,tasks);
+                String taskName = JOptionPane.showInputDialog(ToDoList.this, "Enter task: ", "New Task", JOptionPane.PLAIN_MESSAGE);
+
+                if (taskName != null && !taskName.isBlank()) {
+                    Task newTask = new Task(taskName, ToDoList.this, yOffset,tasks);
+                    tasks.add(newTask);
+                    ToDoList.this.revalidate();
+                    ToDoList.this.repaint();
+                }
+                
                 
                 // Add the new task to the LinkedList.
-                tasks.add(newTask);
+                
                 
                 // Increment the Y offset for the next task.
                 yOffset += TASK_HEIGHT;
 
                 // Refresh the frame to show the new component.
-                ToDoList.this.revalidate();
-                ToDoList.this.repaint();
+                //ToDoList.this.revalidate();
+                //ToDoList.this.repaint();
             }
         });
 
