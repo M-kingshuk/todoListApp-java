@@ -43,6 +43,8 @@ public class ToDoList extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 tasks[i++] = new Task("Task " + i, ToDoList.this, yPos += 30);
+                ToDoList.this.revalidate();
+                ToDoList.this.repaint();
             }
         });
 
