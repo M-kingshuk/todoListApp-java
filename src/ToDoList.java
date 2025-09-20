@@ -1,7 +1,7 @@
 import javax.swing.*;
 
-class addTask {
-
+class Task {
+    
 }
 
 public class ToDoList {
@@ -10,19 +10,14 @@ public class ToDoList {
         frame.setSize(400, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(null);
-        
-        JLabel label = new JLabel("Lets go, bitch!", SwingConstants.CENTER);
-        label.setBounds(50, 200, 300, 30);
-        frame.add(label);
+
+        // int distTask = 30;
+        // JCheckBox[] tasks = new JCheckBox[1024];
         
         JButton addTaskButton = new JButton("Add Task");
         addTaskButton.setBounds(100, 20, 200, 40);
         frame.add(addTaskButton);
 
-        JCheckBox task = new JCheckBox("Buy milk");
-        task.setBounds(100, 60, 150, 30);
-        frame.add(task);
-        
         frame.setVisible(true);
     }
 }
