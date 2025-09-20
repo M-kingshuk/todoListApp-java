@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 class Task {
     JCheckBox task;
@@ -36,7 +37,7 @@ class Task {
 public class ToDoList extends JFrame {
     int i = 0;
     int yPos = 30;
-    Task[] tasks = new Task[4096];
+    ArrayList<Task> tasks = new ArrayList<>();
 
     public ToDoList() {
         this.setTitle("To Do List");
@@ -66,7 +67,7 @@ public class ToDoList extends JFrame {
                 String taskName = JOptionPane.showInputDialog(ToDoList.this, "Enter task: ", "New Task", JOptionPane.PLAIN_MESSAGE);
 
                 if (taskName != null && !taskName.isBlank()) {
-                    tasks[i++] = new Task(taskName, ToDoList.this, yPos += 30);
+                    tasks.add(new Task(taskName, ToDoList.this, yPos += 30));
                     ToDoList.this.revalidate();
                     ToDoList.this.repaint();
                 }
