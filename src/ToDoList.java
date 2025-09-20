@@ -3,10 +3,12 @@ import java.awt.*;
 import java.awt.event.*;
 
 class Task {
+    int taskId;
     JCheckBox task;
     JButton removeTaskButton;
 
-    public Task(String text, JFrame frame, int yPos) {
+    public Task(String text, JFrame frame, int yPos, int tempId) {
+        this.taskId = tempId;
         this.task = new JCheckBox(text);
         this.task.setBounds(100, yPos, 170, 30);
         frame.add(this.task);
@@ -41,7 +43,7 @@ public class ToDoList extends JFrame {
         addTaskButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                tasks[i++] = new Task("Task " + i, ToDoList.this, yPos += 30);
+                tasks[i++] = new Task("Task " + i, ToDoList.this, yPos += 30, i - 1);
                 ToDoList.this.revalidate();
                 ToDoList.this.repaint();
             }
