@@ -8,7 +8,7 @@ class Task {
     JCheckBox task;
     JButton removeTaskButton;
 
-    public Task(String text, JFrame frame, int yPos) {
+    public Task(String text, JFrame frame, int yPos, LinkedList<Task> tasksList) {
         this.task = new JCheckBox("Demo Task");
         task.setBounds(100, yPos, 170, 30);
         frame.add(this.task);
@@ -21,7 +21,25 @@ class Task {
         this.removeTaskButton = new JButton(icon);
         removeTaskButton.setBounds(270, yPos, 30, 30);
         frame.add(this.removeTaskButton);
+
+        this.removeTaskButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+                tasksList.remove(Task.this);
+                
+                
+                frame.remove(Task.this.task);
+                frame.remove(Task.this.removeTaskButton);
+                
+              
+                frame.revalidate();
+                frame.repaint();
+            }
+        });
     }
+
+    
 }
 
 public class ToDoList extends JFrame {
@@ -46,7 +64,7 @@ public class ToDoList extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Create a new Task object with the "Demo Task" name.
-                Task newTask = new Task("Demo Task", ToDoList.this, yOffset);
+                Task newTask = new Task("Demo Task", ToDoList.this, yOffset,tasks);
                 
                 // Add the new task to the LinkedList.
                 tasks.add(newTask);
