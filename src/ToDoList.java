@@ -7,7 +7,7 @@ class Task {
     JCheckBox task;
     JButton removeTaskButton;
 
-    public Task(String text, JFrame frame, int yPos) {
+    public Task(String text, JFrame frame, int yPos, ArrayList<Task> tasks) {
         this.task = new JCheckBox(text);
         this.task.setBounds(100, yPos, 170, 30);
         frame.add(this.task);
@@ -24,8 +24,16 @@ class Task {
         this.removeTaskButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                tasks.remove(Task.this);
                 frame.remove(Task.this.task);
                 frame.remove(Task.this.removeTaskButton);
+
+                int newY = 60;
+                for (Task currentTask : tasks) {
+                    currentTask.task.setBounds(100, newY, 170, 30);
+                    currentTask.removeTaskButton.setBounds(270, newY, 30, 30);
+                    newY += 30;
+                }
 
                 frame.revalidate();
                 frame.repaint();
@@ -67,7 +75,7 @@ public class ToDoList extends JFrame {
                 String taskName = JOptionPane.showInputDialog(ToDoList.this, "Enter task: ", "New Task", JOptionPane.PLAIN_MESSAGE);
 
                 if (taskName != null && !taskName.isBlank()) {
-                    tasks.add(new Task(taskName, ToDoList.this, yPos += 30));
+                    tasks.add(new Task(taskName, ToDoList.this, yPos += 30, tasks));
                     ToDoList.this.revalidate();
                     ToDoList.this.repaint();
                 }
