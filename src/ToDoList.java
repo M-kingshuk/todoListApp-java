@@ -29,6 +29,14 @@ class Task {
                 tasksList.remove(Task.this);
                 frame.remove(Task.this.task);
                 frame.remove(Task.this.removeTaskButton);
+
+                int newY = 60;
+                for (Task currentTask : tasksList) {
+                    currentTask.task.setBounds(100, newY, 170, 30);
+                    currentTask.removeTaskButton.setBounds(270, newY, 30, 30);
+                    newY += 40;
+                }
+                
                 frame.revalidate();
                 frame.repaint();
             }
