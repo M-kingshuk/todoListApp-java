@@ -27,12 +27,8 @@ class Task {
             public void actionPerformed(ActionEvent e) {
                 
                 tasksList.remove(Task.this);
-                
-                
                 frame.remove(Task.this.task);
                 frame.remove(Task.this.removeTaskButton);
-                
-              
                 frame.revalidate();
                 frame.repaint();
             }
