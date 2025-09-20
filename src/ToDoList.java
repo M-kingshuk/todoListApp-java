@@ -28,6 +28,18 @@ class Task {
                 
             }
         });
+
+        this.removeTaskButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+                
+                frame.remove(Task.this.task);
+                frame.remove(Task.this.removeTaskButton);
+                frame.revalidate();
+                frame.repaint();
+            }
+        });
     }
 }
 
