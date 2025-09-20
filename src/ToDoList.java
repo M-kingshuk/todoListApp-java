@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 class Task {
     JCheckBox task;
@@ -27,7 +29,7 @@ public class ToDoList extends JFrame {
         this.setSize(400, 600);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
-        this.getContentPane().setBackground(Color.WHITE);
+        this.getContentPane().setBackground(new Color(198, 217, 238));
         
 
         Task[] tasks = new Task[1024];
@@ -35,6 +37,13 @@ public class ToDoList extends JFrame {
         JButton addTaskButton = new JButton("Add Task");
         addTaskButton.setBounds(100, 20, 200, 40);
         this.add(addTaskButton);
+
+        addTaskButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Add Task Button Clicked!!");
+            }
+        });
 
         this.setVisible(true);
     }
