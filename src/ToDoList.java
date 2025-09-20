@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 class Task {
     JCheckBox task;
@@ -50,6 +49,7 @@ public class ToDoList extends JFrame {
 
         this.setVisible(true);
     }
+    
     public static void main(String[] args) {
         new ToDoList();
     }
