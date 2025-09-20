@@ -21,13 +21,20 @@ class Task {
         this.removeTaskButton = new JButton(icon);
         this.removeTaskButton.setBounds(270, yPos, 30, 30);
         frame.add(this.removeTaskButton);
+
+        removeTaskButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+            }
+        });
     }
 }
 
 public class ToDoList extends JFrame {
     int i = 0;
     int yPos = 30;
-    Task[] tasks = new Task[1024];
+    Task[] tasks = new Task[4096];
 
     public ToDoList() {
         this.setTitle("To Do List");
