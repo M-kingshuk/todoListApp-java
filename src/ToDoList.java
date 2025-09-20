@@ -20,7 +20,7 @@ public class ToDoList {
         frame.add(addTaskButton);
 
         JCheckBox task = new JCheckBox("Buy milk");
-        task.setBounds(50, 50, 150, 30);
+        task.setBounds(100, 60, 150, 30);
         frame.add(task);
         
         frame.setVisible(true);
