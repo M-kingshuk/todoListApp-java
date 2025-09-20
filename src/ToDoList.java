@@ -27,6 +27,8 @@ public class ToDoList extends JFrame {
         this.setSize(400, 600);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
+        this.getContentPane().setBackground(Color.WHITE);
+        
 
         Task[] tasks = new Task[1024];
         
