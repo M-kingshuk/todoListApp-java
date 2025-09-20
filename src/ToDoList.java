@@ -2,7 +2,12 @@ import javax.swing.*;
 import java.awt.*;
 
 class Task {
-    
+    JCheckBox task;
+    JButton removeTaskButton;
+
+    public Task(String text, JFrame jFrame, int yPos) {
+        //
+    }
 }
 
 public class ToDoList {
