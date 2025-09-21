@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.ArrayList;
+import java.util.*;
 
 class Task {
     JCheckBox task;
@@ -50,6 +50,7 @@ public class ToDoList extends JFrame {
     public ToDoList() {
         this.setTitle("To Do List");
         this.setSize(400, 600);
+        this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
         this.getContentPane().setBackground(new Color(198, 217, 238));
@@ -63,7 +64,6 @@ public class ToDoList extends JFrame {
         Font headerFont = tempFont.deriveFont(10f);
         header.setFont(headerFont);
         this.add(header);
-
         
         JButton addTaskButton = new JButton("Add Task");
         addTaskButton.setBounds(100, 20, 200, 40);
