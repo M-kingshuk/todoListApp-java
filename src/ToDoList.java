@@ -57,7 +57,7 @@ public class ToDoList extends JFrame {
         ImageIcon appIcon = new ImageIcon("img/appIcon.png");
         this.setIconImage(appIcon.getImage());
 
-        JLabel header = new JLabel("Created by Kingshuk and Shourjo");
+        JLabel header = new JLabel("Created by chunkupaglu and nunkupaglu");
         header.setBounds(110, 0, 200, 20);
         Font tempFont = header.getFont();
         Font headerFont = tempFont.deriveFont(10f);
