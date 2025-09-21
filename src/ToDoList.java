@@ -43,7 +43,7 @@ class Task {
 }
 
 public class ToDoList extends JFrame {
-    int yPos = -30;
+    int yPos = 30;
     ArrayList<Task> tasks = new ArrayList<>();
 
     public ToDoList() {
@@ -70,7 +70,7 @@ public class ToDoList extends JFrame {
 
         JPanel taskPanel = new JPanel();
         taskPanel.setLayout(null);
-        taskPanel.setBackground(new Color(98, 17, 38));
+        taskPanel.setBackground(new Color(198, 217, 238));
         taskPanel.setBounds(100, 60, 200, 500);
         this.add(taskPanel);
 
@@ -80,10 +80,12 @@ public class ToDoList extends JFrame {
                 String taskName = JOptionPane.showInputDialog(ToDoList.this, "Enter task: ", "New Task", JOptionPane.PLAIN_MESSAGE);
 
                 if (taskName != null && !taskName.isBlank()) {
-                    Task newTask = new Task(taskName, ToDoList.this, taskPanel, yPos += 30, tasks);
+                    int totalTask = taskPanel.getComponentCount() / 2;
+                    Task newTask = new Task(taskName, ToDoList.this, taskPanel, yPos * totalTask, tasks);
                     tasks.add(newTask);
                     taskPanel.add(newTask.task);
                     taskPanel.add(newTask.removeTaskButton);
+                    
                     ToDoList.this.revalidate();
                     ToDoList.this.repaint();
                 }
